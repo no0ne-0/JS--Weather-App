@@ -8,6 +8,7 @@ const searchBtn = document.querySelector(".search button");
 const weatherIcon = document.querySelector(".weather-icon");
 const errorElement = document.querySelector(".error");
 const weatherElement = document.querySelector(".weather");
+const input = document.querySelector(".inputField");
 
 async function checkWeather(city) {
   try {
@@ -49,3 +50,9 @@ async function checkWeather(city) {
 searchBtn.addEventListener("click", () => {
   checkWeather(searchBox.value);
 });
+input.addEventListener('keydown',(event)=>{
+    if (event.key === 'Enter'){
+        event.preventDefault();
+        checkWeather(searchBox.value);
+    }
+})
